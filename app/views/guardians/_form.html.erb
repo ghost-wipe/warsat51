@@ -1,0 +1,27 @@
+<%= form_with(model: guardian, local: true) do |form| %>
+  <% if guardian.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(guardian.errors.count, "error") %> prohibited this guardian from being saved:</h2>
+
+      <ul>
+      <% guardian.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :class_id %>
+    <%= form.text_field :class_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
